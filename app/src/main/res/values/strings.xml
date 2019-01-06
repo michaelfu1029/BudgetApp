@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">Budget Tracker</string>
     <string name="subtract">0</string>
-    <string name="michael_s_budget">200</string>
+    <string name="michael_s_budget">200.00</string>
     <string name="amountLeftInText">Amount Remaining</string>
     <string name="subtractInText">Amount Spent</string>
     <string name="subtractButton">Subtract from Remaining</string>
     <string name="left">+1</string>
     <string name="middle">+5</string>
     <string name="right">reset</string>
-    <string name="random_num_heading">Here is a Random number between 1 and %1d</string>
+    <string name="random_num_heading">Enter Amount Spent</string>
+    <string name="submit">Submit</string>
 </resources>

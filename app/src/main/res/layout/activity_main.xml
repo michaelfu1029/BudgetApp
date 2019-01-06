@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/colorPrimary"
-    tools:context=".MainActivity">
+    tools:background="@color/screenBackground2"
+    tools:context=".MainActivity"
+    android:background= "@color/screenBackground2">
 
     <TextView
         android:id="@+id/textView"
@@ -143,7 +144,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Button"
+        android:text="Specific Value"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,13 +9,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TOTAL_COUNT = "total_count";
+    private double amountLeft;
 
     public void switchAct(View view) {
         Intent secondPage = new Intent(this, SecondActivity.class);
         startActivity(secondPage);
     }
 
+    public void subtract(View view, double value) {
+        amountLeft -= value;
+        setValue(amountLeft);
+    }
 
+    public void setValue(double set) {
+        // Get the text view.
+        TextView showCountTextView = (TextView)findViewById(R.id.textView);
+        amountLeft = set;
+        // Display the new value in the text view.
+        showCountTextView.setText(Double.toString(amountLeft));
+    }
 
     public  void addOne(View view) {
         int addVal = 1;
@@ -25,6 +38,23 @@ public class MainActivity extends AppCompatActivity {
         int addVal = 5;
         countMe(view, addVal);
     }
+
+    public void countMe (View view, int addVal) {
+        // Get the text view.
+        TextView showCountTextView = (TextView)
+                findViewById(R.id.textView);
+
+        // Get the value of the text view.
+        String countString = showCountTextView.getText().toString();
+
+        // Convert value to a number and increment it.
+        Integer count = Integer.parseInt(countString);
+        count += addVal;
+
+        // Display the new value in the text view.
+        showCountTextView.setText(count.toString());
+    }
+
     public  void reset(View view) {
         TextView showCountTextView = (TextView)
                 findViewById(R.id.textView);
@@ -61,12 +91,12 @@ public class MainActivity extends AppCompatActivity {
         String sumString = showSumTextView.getText().toString();
 
         // Convert value to a number and increment it.
-        Integer sum = Integer.parseInt(sumString);
+        double sum = Double.parseDouble(sumString);
 
         if(sum >= cost) {
             sum -= cost;
             // Display the new value in the text view.
-            showSumTextView.setText(sum.toString());
+            showSumTextView.setText(Double.toString(sum));
 
             // Toast myToast = Toast.makeText(this, message, duration);
             Toast myToast = Toast.makeText(this, "Budget Updated",
@@ -79,21 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
         reset(view);
     }
-    public void countMe (View view, int addVal) {
-        // Get the text view.
-        TextView showCountTextView = (TextView)
-                findViewById(R.id.textView);
 
-        // Get the value of the text view.
-        String countString = showCountTextView.getText().toString();
-
-        // Convert value to a number and increment it.
-        Integer count = Integer.parseInt(countString);
-        count += addVal;
-
-        // Display the new value in the text view.
-        showCountTextView.setText(count.toString());
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
